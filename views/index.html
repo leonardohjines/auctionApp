@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Live Auction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script> 
+    <script src="scripts/es6-shim/es6-shim.min.js"></script>
+    <script src="scripts/systemjs/dist/system-polyfills.js"></script>
+    <script src="scripts/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="scripts/systemjs/dist/system.src.js"></script>
+    <script src="scripts/rxjs/bundles/Rx.js"></script>
+    <script src="scripts/angular2/bundles/angular2.dev.js"></script>
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/portfolio-item.css" rel="stylesheet">
+    <script>
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('javascripts/app/main.js')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <body>
+    <auction-app>Loading...</auction-app>
+  </body>
+</html>
