@@ -1,5 +1,6 @@
-System.register(['angular2/platform/browser', './app.component.js'], function(exports_1) {
+System.register(['angular2/platform/browser', './app.component.js'], function(exports_1, context_1) {
     "use strict";
+    var __moduleName = context_1 && context_1.id;
     var browser_1, app_component_js_1;
     return {
         setters:[
