@@ -18,8 +18,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            let AppComponent = class AppComponent {
+                constructor() {
                     this.price = 0.0;
                     this.socket = null;
                     this.bidValue = '';
@@ -28,19 +28,18 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         this.price = data;
                     }.bind(this));
                 }
-                AppComponent.prototype.bid = function () {
+                bid() {
                     this.socket.emit('bid', this.bidValue);
                     this.bidValue = '';
-                };
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'auction-app',
-                        templateUrl: 'templates/product.html'
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
-            }());
+                }
+            };
+            AppComponent = __decorate([
+                core_1.Component({
+                    selector: 'auction-app',
+                    templateUrl: 'templates/product.html'
+                }), 
+                __metadata('design:paramtypes', [])
+            ], AppComponent);
             exports_1("AppComponent", AppComponent);
         }
     }
