@@ -1,5 +1,7 @@
 import {Component} from 'angular2/core';
 
+declare const io;
+
 @Component({
     selector: 'auction-app',
     templateUrl: 'templates/product.html'

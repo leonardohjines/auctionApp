@@ -16,15 +16,16 @@ io.set("origins", "*:*");
 var currentPrice = 99;
 
 io.on('connection', function (socket) {
-	socket.emit('priceUpdate',currentPrice);
+	socket.emit('priceUpdate', currentPrice);
 	socket.on('bid', function (data) {
-		currentPrice = parseInt(data);
-		socket.emit('priceUpdate',currentPrice);
-		socket.broadcast.emit('priceUpdate',currentPrice);
+		newPrice = parseFloat(data);
+		if (currentPrice < newPrice) {
+			currentPrice = newPrice;
+			socket.emit('priceUpdate', currentPrice);
+			socket.broadcast.emit('priceUpdate', currentPrice);
+		}
 	});
 });
-
-
 
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
 app.use('/templates', express.static(__dirname + '/views/templates/'));
@@ -42,6 +43,5 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
 
 module.exports = app;
